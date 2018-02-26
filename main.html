@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://unpkg.com/liquidjs@3.1.0/dist/liquid.min.js"></script>
+
+</head>
+<body>
+	<h1>Liquid Playgroud</h1>
+
+<script type="text/template">
+<h3>{{ name | capitalize | prepend: "Welcome to "}}</h3>
+</script>
+<div id="result"></div>
+</body>
+
+<script type="text/javascript">
+	var template = document.querySelector('[type="text/template"]')
+	var result = document.querySelector('#result')
+	var engine = new Liquid()
+
+engine
+	.parseAndRender(template.innerHTML, {name: 'liquid'})
+	.then(html => result.innerHTML = html)
+
+</script>
+</html>
+
